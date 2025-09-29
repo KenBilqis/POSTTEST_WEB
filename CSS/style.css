@@ -19,6 +19,7 @@ body {
   background-color: var(--white);
   color: var(--primary-blue);
   line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a {
@@ -130,6 +131,41 @@ h3 {
   width: 100%;
 }
 
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logout-btn {
+  background-color: var(--accent-blue);
+  color: var(--white);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.logout-btn:hover {
+  background-color: var(--secondary-blue);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+.logout-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(52, 152, 219, 0.3);
+}
+
+.logout-btn:focus {
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3);
+}
+
 .section {
   padding: 4rem 0;
 }
@@ -149,7 +185,7 @@ h3 {
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
   text-align: center;
   border: 1px solid var(--light-gray);
 }
@@ -177,7 +213,7 @@ h3 {
   padding: 2rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   border: 1px solid var(--light-gray);
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
 .review-card:hover {
@@ -282,10 +318,21 @@ h3 {
 
   .nav-list {
     flex-direction: column;
+    margin-bottom: 1rem;
   }
 
   .nav-item {
     margin: 0.5rem 0;
+  }
+
+  .nav-actions {
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .logout-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
   }
 
   .section-title {
@@ -295,4 +342,114 @@ h3 {
   .profile-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* === Dark Mode Toggle Button === */
+.dark-mode-toggle {
+  background: none;
+  border: 2px solid transparent;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--light-gray);
+  margin-left: 1rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.dark-mode-toggle:hover {
+  color: var(--white);
+  transform: scale(1.1);
+  border-color: var(--accent-blue);
+  background-color: rgba(52, 152, 219, 0.1);
+}
+
+.dark-mode-toggle:focus {
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.3);
+}
+
+/* === Dark Mode Styles === */
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark-mode .header {
+  background-color: #656565;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .nav-title,
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3 {
+  color: #f0f0f0;
+}
+
+body.dark-mode .nav-link {
+  color: #aaa;
+}
+
+body.dark-mode .nav-link:hover {
+  color: #fff;
+}
+
+body.dark-mode .section-title::after {
+  background-color: #5dade2;
+}
+
+body.dark-mode .card,
+body.dark-mode .review-card,
+body.dark-mode .profile-info {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  border-color: #444;
+}
+
+body.dark-mode .card-caption,
+body.dark-mode .review-card h3 {
+  color: #bbdefb;
+}
+
+body.dark-mode .review-author,
+body.dark-mode .review-rating {
+  color: #90caf9;
+}
+
+body.dark-mode a {
+  color: #64b5f6;
+}
+
+body.dark-mode a:hover {
+  color: #bbdefb;
+}
+
+body.dark-mode .footer {
+  background-color: #656565;
+  color: #bbb;
+  border-top: 5px solid #2c2c2c;
+}
+
+body.dark-mode .footer a {
+  color: #90caf9;
+}
+
+body.dark-mode .card-image {
+  filter: brightness(0.9);
+}
+
+body.dark-mode .logout-btn {
+  background-color: #5dade2;
+  color: #121212;
+}
+
+body.dark-mode .logout-btn:hover {
+  background-color: #85c1e9;
+  box-shadow: 0 4px 12px rgba(93, 173, 226, 0.3);
 }
