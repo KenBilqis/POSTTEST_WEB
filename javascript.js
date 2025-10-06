@@ -6,11 +6,11 @@ const loginForm = document.getElementById('loginForm');
 if (loginForm) {
   loginForm.addEventListener('submit', (e) => {
     e.preventDefault(); // Mencegah form submit default
-    
+
     // Ambil nilai input
     const nickname = document.getElementById('loginNickname').value;
     const password = document.getElementById('loginPassword').value;
-    
+
     // Validasi sederhana (bisa disesuaikan dengan kebutuhan)
     if (nickname && password) {
       // Redirect ke index.html
@@ -48,15 +48,15 @@ if (logoutBtn) {
   logoutBtn.addEventListener('click', () => {
     // Tambahkan efek visual saat diklik
     logoutBtn.style.transform = 'scale(0.95)';
-    
+
     // Konfirmasi logout (opsional)
     const confirmLogout = confirm('Apakah Anda yakin ingin logout?');
-    
+
     if (confirmLogout) {
       // Animasi loading singkat
       logoutBtn.textContent = 'Logging out...';
       logoutBtn.disabled = true;
-      
+
       // Redirect ke login.html setelah delay singkat
       setTimeout(() => {
         window.location.href = './login.html';
@@ -130,3 +130,8 @@ sections.forEach((section) => {
   section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
   observer.observe(section);
 });
+
+// Di bagian logout functionality
+setTimeout(() => {
+  window.location.href = './logout.php'; // Ganti dari login.html ke logout.php
+}, 800);
